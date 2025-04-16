@@ -23,11 +23,14 @@ const ProductCard: React.FC<Props> = ({
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-72 w-60 bg-gray-200 rounded-lg p-3 overflow-hidden cursor-pointer">
+    <div
+      id={id.toString()}
+      className="min-h-72 w-60 bg-gray-200 rounded-lg p-2 overflow-hidden cursor-pointer"
+    >
       <img
         src={image}
         alt="product-image"
-        className="w-full h-44 object-cover rounded-lg"
+        className="w-full h-44 object-contain rounded-lg"
       />
 
       <h2 className="my-1 font-semibold">{name}</h2>
@@ -37,7 +40,7 @@ const ProductCard: React.FC<Props> = ({
           <div className="flex items-center text-sm justify-center bg-yellow-500 p-1 text-black rounded-md">
             <FontAwesomeIcon icon={faStar} />
             <h3>{rating}</h3>
-            <span className="text-xs text-gray-800">({reviews})</span>
+            <span className="text-xs text-gray-800">({reviews}+)</span>
           </div>
           <div>
             <div className="mrp line-through text-sm text-gray-800">₹ 999</div>

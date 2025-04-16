@@ -11,7 +11,8 @@ export const Headphones = [
     rating: 4.8,
     reviews: 6027,
     color: "White",
-    image: "https://example.com/images/headphones-1-1.jpg",
+    image:
+      "https://m.media-amazon.com/images/I/21F6MKKV6EL._SX300_SY300_QL70_FMwebp_.jpg",
     stock: 74,
     discount: 3,
     features: [
@@ -33,7 +34,7 @@ export const Headphones = [
     rating: 4.7,
     reviews: 3821,
     color: "Black",
-    image: "https://example.com/images/headphones-2.jpg",
+    image: "https://m.media-amazon.com/images/I/51HHABMPoVL._SX522_.jpg",
     stock: 52,
     discount: 5,
     features: [
@@ -55,7 +56,8 @@ export const Headphones = [
     rating: 4.3,
     reviews: 1945,
     color: "Blue",
-    image: "https://example.com/images/headphones-3.jpg",
+    image:
+      "https://m.media-amazon.com/images/I/31K0TGXVovL._SX300_SY300_QL70_FMwebp_.jpg",
     stock: 90,
     discount: 10,
     features: ["ANC", "Bluetooth 5.0", "Foldable design", "Voice assistant"],
@@ -72,7 +74,8 @@ export const Headphones = [
     rating: 4.5,
     reviews: 2104,
     color: "Black",
-    image: "https://example.com/images/headphones-4.jpg",
+    image:
+      "https://m.media-amazon.com/images/I/31KL6Rv4HhL._SX300_SY300_QL70_FMwebp_.jpg",
     stock: 43,
     discount: 7,
     features: [
@@ -94,7 +97,7 @@ export const Headphones = [
     rating: 4.6,
     reviews: 4875,
     color: "Red",
-    image: "https://example.com/images/headphones-5.jpg",
+    image: "https://m.media-amazon.com/images/I/618aVzbPMjL._SX679_.jpg",
     stock: 28,
     discount: 6,
     features: ["W1 chip", "ANC", "Fast Fuel", "On-ear controls"],
@@ -135,7 +138,8 @@ export const Mobiles = [
     rating: 4.9,
     reviews: 9810,
     color: "Deep Purple",
-    image: "https://example.com/images/iphone14.jpg",
+    image:
+      "https://m.media-amazon.com/images/I/61giwQtR1qL._AC_UY327_FMwebp_QL65_.jpg",
     stock: 34,
     discount: 4,
     features: ["A16 Bionic", "48MP Camera", "Always-On Display", "Face ID"],
@@ -152,7 +156,7 @@ export const Mobiles = [
     rating: 4.8,
     reviews: 8425,
     color: "Phantom Black",
-    image: "https://example.com/images/galaxy-s23.jpg",
+    image: "https://m.media-amazon.com/images/I/71goZuIha-L._SX679_.jpg",
     stock: 39,
     discount: 6,
     features: ["200MP Camera", "S Pen", "8K Video", "120Hz AMOLED"],
@@ -169,7 +173,8 @@ export const Mobiles = [
     rating: 4.7,
     reviews: 5250,
     color: "Obsidian",
-    image: "https://example.com/images/pixel7pro.jpg",
+    image:
+      "https://m.media-amazon.com/images/I/31hSeN8NeZL._SX300_SY300_QL70_FMwebp_.jpg",
     stock: 42,
     discount: 5,
     features: ["Tensor G2", "Super Res Zoom", "Magic Eraser", "5G"],
@@ -186,7 +191,7 @@ export const Mobiles = [
     rating: 4.5,
     reviews: 3120,
     color: "Titan Black",
-    image: "https://example.com/images/oneplus11.jpg",
+    image: "https://m.media-amazon.com/images/I/414+xRBltFL._SY300_SX300_.jpg",
     stock: 54,
     discount: 7,
     features: [
@@ -207,7 +212,7 @@ export const Mobiles = [
     rating: 4.4,
     reviews: 2890,
     color: "Ceramic White",
-    image: "https://example.com/images/xiaomi13.jpg",
+    image: "https://m.media-amazon.com/images/I/41eB+jXzGsL._SY300_SX300_.jpg",
     stock: 61,
     discount: 10,
     features: [

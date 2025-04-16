@@ -10,7 +10,7 @@ const OffersImg = [offer1, offer2, offer3, offer4, offer5, offer6];
 const Offers = () => {
   return (
     <>
-      <div className="h-56 bg-red-500 mx-5 rounded-lg">
+      <div className="h-full px-2 rounded-lg">
         <img className="" src={OffersImg[4]} alt="" />
       </div>
     </>
