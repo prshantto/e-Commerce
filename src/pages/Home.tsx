@@ -9,41 +9,39 @@ const Home = () => {
 
       <div className="my-5 mx-5">
         <h1 className="my-2 text-xl font-semibold">Top Deals on Headphones</h1>
-        <div className="flex gap-6 flex-wrap">
-          {Headphones.map((item) => {
-            return (
+        <div className="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth px-1">
+          {Headphones.map((item) => (
+            <div key={item.id} className="flex-shrink-0 w-[250px]">
               <ProductCard
                 id={item.id}
-                key={item.id}
                 price={item.price}
                 name={item.name}
                 image={item.image}
                 rating={item.rating}
                 reviews={item.reviews}
               />
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
 
       <div className="my-5 mx-5">
         <h1 className="my-2 text-xl font-semibold">
-          Treanding Deals on Mobiles
+          Trending Deals on Mobiles
         </h1>
-        <div className="flex gap-6 flex-wrap">
-          {Mobiles.map((item) => {
-            return (
+        <div className="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth px-1">
+          {Mobiles.map((item) => (
+            <div key={item.id} className="flex-shrink-0 w-[250px]">
               <ProductCard
                 id={item.id}
-                key={item.id}
                 price={item.price}
                 name={item.name}
                 image={item.image}
                 rating={item.rating}
                 reviews={item.reviews}
               />
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </div>
