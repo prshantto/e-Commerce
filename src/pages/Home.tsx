@@ -4,14 +4,16 @@ import { Headphones, Mobiles } from "../data";
 
 const Home = () => {
   return (
-    <div>
+    <div className="px-3 sm:px-5">
       <Offers />
 
-      <div className="my-5 mx-5">
-        <h1 className="my-2 text-xl font-semibold">Top Deals on Headphones</h1>
-        <div className="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth px-1">
+      <section className="my-6">
+        <h1 className="text-lg sm:text-xl font-semibold mb-3">
+          Top Deals on Headphones
+        </h1>
+        <div className="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth -mx-1 px-1 sm:px-2">
           {Headphones.map((item) => (
-            <div key={item.id} className="flex-shrink-0 w-[250px]">
+            <div key={item.id} className="flex-shrink-0 w-[75vw] sm:w-[220px]">
               <ProductCard
                 id={item.id}
                 price={item.price}
@@ -23,15 +25,15 @@ const Home = () => {
             </div>
           ))}
         </div>
-      </div>
+      </section>
 
-      <div className="my-5 mx-5">
-        <h1 className="my-2 text-xl font-semibold">
+      <section className="my-6">
+        <h1 className="text-lg sm:text-xl font-semibold mb-3">
           Trending Deals on Mobiles
         </h1>
-        <div className="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth px-1">
+        <div className="flex gap-4 overflow-x-auto no-scrollbar scroll-smooth -mx-1 px-1 sm:px-2">
           {Mobiles.map((item) => (
-            <div key={item.id} className="flex-shrink-0 w-[250px]">
+            <div key={item.id} className="flex-shrink-0 w-[75vw] sm:w-[220px]">
               <ProductCard
                 id={item.id}
                 price={item.price}
@@ -43,7 +45,7 @@ const Home = () => {
             </div>
           ))}
         </div>
-      </div>
+      </section>
     </div>
   );
 };
