@@ -25,13 +25,14 @@ const ProductCard: React.FC<Props> = ({
   return (
     <div
       id={id.toString()}
-      className="w-full max-w-xs bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow p-4 flex flex-col gap-2 cursor-pointer"
+      className="w-72 h-full bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow p-4 flex flex-col gap-2 "
     >
       <div className="w-full h-44 bg-gray-100 rounded-xl overflow-hidden flex items-center justify-center">
         <img
+          onClick={() => navigate("/product")}
           src={image}
           alt="product"
-          className="object-contain h-full w-full p-2"
+          className="object-contain h-full w-full p-2 cursor-pointer"
         />
       </div>
 
@@ -39,9 +40,9 @@ const ProductCard: React.FC<Props> = ({
         {name}
       </h2>
 
-      <div className="flex justify-between items-end mt-auto">
+      <div className="flex flex-col mt-auto">
         <div className="flex flex-col gap-1">
-          <div className="flex items-center text-xs sm:text-sm bg-yellow-400 px-2 py-1 text-black rounded-full gap-1 font-medium shadow-sm">
+          <div className="w-fit flex items-center text-xs sm:text-sm bg-yellow-400 px-2 py-1 text-black rounded-full gap-1 font-medium shadow-sm">
             <FontAwesomeIcon icon={faStar} />
             <span>{rating}</span>
             <span className="text-gray-700 text-xs">({reviews}+)</span>
@@ -52,10 +53,10 @@ const ProductCard: React.FC<Props> = ({
           </div>
         </div>
 
-        <div className="flex flex-col gap-2 w-fit">
+        <div className="w-full flex flex-col gap-2 ">
           <button
             onClick={() => navigate("/product")}
-            className="bg-gradient-to-r from-orange-500 to-orange-600 hover:brightness-110 text-white text-sm font-medium px-3 py-1.5 rounded-lg flex items-center gap-1 transition-all"
+            className="cursor-pointer bg-gradient-to-r from-orange-500 to-orange-600 hover:brightness-110 text-white text-sm font-medium px-3 py-1.5 rounded-lg flex items-center gap-1 transition-all"
           >
             <Zap size={16} />
             Buy Now
@@ -63,7 +64,7 @@ const ProductCard: React.FC<Props> = ({
 
           <button
             onClick={() => alert("item added to cart")}
-            className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:brightness-110 text-white text-sm font-medium px-3 py-1.5 rounded-lg flex items-center gap-1 transition-all"
+            className="cursor-pointer bg-gradient-to-r from-yellow-400 to-yellow-500 hover:brightness-110 text-white text-sm font-medium px-3 py-1.5 rounded-lg flex items-center gap-1 transition-all"
           >
             <ShoppingCart size={16} />
             Add to Cart
