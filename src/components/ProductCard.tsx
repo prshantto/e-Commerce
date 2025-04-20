@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { ShoppingCart, Zap } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useCartStore } from "../Store/CartStore";
 
 type Props = {
   id: number;
@@ -21,6 +22,8 @@ const ProductCard: React.FC<Props> = ({
   reviews,
 }) => {
   const navigate = useNavigate();
+
+  const { addToCart, cart } = useCartStore();
 
   return (
     <div
@@ -63,7 +66,24 @@ const ProductCard: React.FC<Props> = ({
           </button>
 
           <button
-            onClick={() => alert("item added to cart")}
+            onClick={() =>
+              addToCart({
+                id,
+                name,
+                image,
+                price,
+                rating,
+                reviews,
+                category: "",
+                currency: "INR",
+                description: "",
+                brand: "",
+                color: "",
+                stock: 0,
+                discount: 0,
+                features: [],
+              })
+            }
             className="cursor-pointer bg-gradient-to-r from-yellow-400 to-yellow-500 hover:brightness-110 text-white text-sm font-medium px-3 py-1.5 rounded-lg flex items-center gap-1 transition-all"
           >
             <ShoppingCart size={16} />

@@ -1,40 +1,22 @@
 import { useState } from "react";
+import { useCartStore } from "../Store/CartStore";
 
 const Checkout = () => {
-  const cartItems = [
-    {
-      id: 1,
-      name: "Sony Pro Headphones",
-      image:
-        "https://m.media-amazon.com/images/I/21F6MKKV6EL._SX300_SY300_QL70_FMwebp_.jpg",
-      price: 231.48,
-      quantity: 1,
-    },
-    {
-      id: 2,
-      name: "iPhone 14",
-      image:
-        "https://m.media-amazon.com/images/I/61giwQtR1qL._AC_UY327_FMwebp_QL65_.jpg",
-      price: 999.99,
-      quantity: 1,
-    },
-  ];
+  const { cart } = useCartStore(); // ✅ using Zustand store
 
   const [cardNumber, setCardNumber] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
   const [cvv, setCvv] = useState("");
   const [nameOnCard, setNameOnCard] = useState("");
 
-  // Calculate Subtotal
-  const subtotal = cartItems.reduce(
+  const subtotal = cart.reduce(
     (total, item) => total + item.price * item.quantity,
     0
   );
 
-  // Additional Charges
   const taxRate = 0.18; // 18% GST
-  const platformFee = 50; // Flat fee in ₹
-  const deliveryCharge = 40; // Flat delivery fee in ₹
+  const platformFee = 50;
+  const deliveryCharge = 40;
 
   const taxes = subtotal * taxRate;
   const total = subtotal + taxes + platformFee + deliveryCharge;
@@ -42,6 +24,7 @@ const Checkout = () => {
   const handleCheckout = () => {
     if (cardNumber && expiryDate && cvv && nameOnCard) {
       alert("Checkout processed successfully!");
+      // Optionally: clearCart(); or redirect
     } else {
       alert("Please fill in all the required details.");
     }
@@ -52,23 +35,27 @@ const Checkout = () => {
       {/* Left Side: Cart Details */}
       <div className="flex-1 bg-gray-100 p-4 rounded-lg shadow-lg">
         <h1 className="text-xl font-semibold mb-4">Your Cart</h1>
-        {cartItems.map((item) => (
-          <div
-            key={item.id}
-            className="flex items-center justify-between mb-4 p-3 bg-white rounded-lg shadow-sm"
-          >
-            <img
-              src={item.image}
-              alt={item.name}
-              className="w-16 h-16 object-contain rounded-md"
-            />
-            <div className="flex-1 ml-4">
-              <h2 className="font-semibold">{item.name}</h2>
-              <p className="text-sm text-gray-600">₹ {item.price}</p>
-              <p className="text-sm text-gray-800">Qty: {item.quantity}</p>
+        {cart.length === 0 ? (
+          <p>Your cart is empty.</p>
+        ) : (
+          cart.map((item) => (
+            <div
+              key={item.id}
+              className="flex items-center justify-between mb-4 p-3 bg-white rounded-lg shadow-sm"
+            >
+              <img
+                src={item.image}
+                alt={item.name}
+                className="w-16 h-16 object-contain rounded-md"
+              />
+              <div className="flex-1 ml-4">
+                <h2 className="font-semibold">{item.name}</h2>
+                <p className="text-sm text-gray-600">₹ {item.price}</p>
+                <p className="text-sm text-gray-800">Qty: {item.quantity}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
         <h2 className="text-lg font-semibold mt-4">Billing Summary</h2>
         <div className="mt-2">
           <div className="flex justify-between">

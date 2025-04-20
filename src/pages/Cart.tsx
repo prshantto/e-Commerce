@@ -1,45 +1,13 @@
-// 📦 Cart.tsx
-import { useState } from "react";
+import { useCartStore } from "../Store/CartStore";
 import { Trash2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const navigate = useNavigate();
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      name: "Sony Pro Headphones",
-      image:
-        "https://m.media-amazon.com/images/I/21F6MKKV6EL._SX300_SY300_QL70_FMwebp_.jpg",
+  const { cart, removeFromCart, clearCart, increment, decrement } =
+    useCartStore();
 
-      price: 231.48,
-      quantity: 1,
-    },
-    {
-      id: 2,
-      name: "iPhone 14",
-      image:
-        "https://m.media-amazon.com/images/I/61giwQtR1qL._AC_UY327_FMwebp_QL65_.jpg",
-      price: 999.99,
-      quantity: 1,
-    },
-  ]);
-
-  const handleRemove = (id: number) => {
-    setCartItems(cartItems.filter((item) => item.id !== id));
-  };
-
-  const handleQuantityChange = (id: number, amount: number) => {
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item.id === id
-          ? { ...item, quantity: Math.max(1, item.quantity + amount) }
-          : item
-      )
-    );
-  };
-
-  const totalPrice = cartItems.reduce(
+  const totalPrice = cart.reduce(
     (total, item) => total + item.price * item.quantity,
     0
   );
@@ -47,11 +15,12 @@ const Cart = () => {
   return (
     <div className="p-6">
       <h1 className="text-2xl font-semibold mb-4">Your Cart</h1>
-      {cartItems.length === 0 ? (
+
+      {cart.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
         <div className="space-y-4">
-          {cartItems.map((item) => (
+          {cart.map((item) => (
             <div
               key={item.id}
               className="flex items-center justify-between bg-gray-100 p-4 rounded-lg"
@@ -67,14 +36,14 @@ const Cart = () => {
                   <p className="text-sm text-gray-600">₹ {item.price}</p>
                   <div className="flex items-center gap-2 mt-1">
                     <button
-                      onClick={() => handleQuantityChange(item.id, -1)}
+                      onClick={() => decrement(item.id)}
                       className="px-2 py-1 bg-gray-300 rounded"
                     >
                       -
                     </button>
                     <span>{item.quantity}</span>
                     <button
-                      onClick={() => handleQuantityChange(item.id, 1)}
+                      onClick={() => increment(item.id)}
                       className="px-2 py-1 bg-gray-300 rounded"
                     >
                       +
@@ -83,7 +52,7 @@ const Cart = () => {
                 </div>
               </div>
               <button
-                onClick={() => handleRemove(item.id)}
+                onClick={() => removeFromCart(item.id)}
                 className="text-red-500 hover:text-red-700"
               >
                 <Trash2 />
@@ -100,6 +69,12 @@ const Cart = () => {
               className="mt-2 px-4 py-2 bg-[#fb641b] text-white rounded-md cursor-pointer"
             >
               Proceed to Checkout
+            </button>
+            <button
+              onClick={clearCart}
+              className="ml-4 mt-2 px-4 py-2 bg-red-500 text-white rounded-md cursor-pointer"
+            >
+              Clear Cart
             </button>
           </div>
         </div>
