@@ -23,7 +23,7 @@ const ProductCard: React.FC<Props> = ({
 }) => {
   const navigate = useNavigate();
 
-  const { addToCart, cart } = useCartStore();
+  const { addToCart } = useCartStore();
 
   return (
     <div
